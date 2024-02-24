@@ -32,7 +32,7 @@ up_compose:
 	docker-compose -f docker-compose.yml up -d
 
 down_compose:
-	docker-compose -f docker-compose.yml down --remove-orphans
+	docker-compose -f docker-compose.yml down --rmi all -v
 
 start:
 	uvicorn src.main:app --reload
