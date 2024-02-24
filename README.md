@@ -1,6 +1,6 @@
 # FastAPI проект для МТС ШАД
 
-![logo-wide](docs/logo-wide.png)
+![logo-wide](docs/logo-wide.jpeg)
 
 ## Краткое описание
 
