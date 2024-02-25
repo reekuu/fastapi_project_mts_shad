@@ -18,14 +18,12 @@ class IncomingBook(BaseBook):
     year: int
     count_pages: int = Field(alias='pages')
 
-
     @field_validator('title', 'author')  # noqa
     @staticmethod
     def validate_field_length(val: str):
         if len(val) > 100:
             raise PydanticCustomError('Validation error', 'Value is to long!')
         return val
-
 
     @field_validator('year')  # noqa
     @staticmethod
