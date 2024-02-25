@@ -58,7 +58,7 @@
    make start
    ```
    ```bash
-   # Остановка контейнера Docker
+   # Остановка и удаление контейнера, образа и сети в Docker
    make down_compose
    ```
 
