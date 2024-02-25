@@ -13,8 +13,8 @@ class BaseSeller(BaseModel):
     last_name: str
     email: EmailStr
 
+    @field_validator('first_name', 'last_name')  # noqa
     @staticmethod
-    @field_validator('first_name', 'last_name')
     def validate_field_length(val: str) -> str:
         if len(val) > 50:
             raise PydanticCustomError('Validation error', 'Value is to long!')
@@ -39,8 +39,8 @@ class IncomingSeller(BaseSeller):
         ),
     )
 
+    @field_validator('password')  # noqa
     @staticmethod
-    @field_validator('password')
     def validate_password(password: str) -> str:
         """Проверка на сложность пароля."""
         pattern = re.compile(r'^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\S{8,}$')
