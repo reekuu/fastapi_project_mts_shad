@@ -17,7 +17,7 @@ class BaseSeller(BaseModel):
     @staticmethod
     def validate_field_length(val: str) -> str:
         if len(val) > 50:
-            raise PydanticCustomError('Validation error', 'Value is to long!')
+            raise PydanticCustomError('Validation error', 'Value is too long!')
         return val
 
 
