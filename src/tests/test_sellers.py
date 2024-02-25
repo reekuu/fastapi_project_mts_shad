@@ -98,6 +98,18 @@ async def test_get_single_seller(
     }
 
 
+async def test_get_nonexistent_seller(
+    async_client: AsyncClient,
+    test_seller: Seller,
+    jwt_token: str,
+):
+    response = await async_client.get(
+        url='/api/v1/seller/-1',
+        headers={'Authorization': f'Bearer {jwt_token}'},
+    )
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
 async def test_delete_seller(
     db_session: AsyncSession,
     async_client: AsyncClient,

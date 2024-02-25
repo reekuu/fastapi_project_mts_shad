@@ -89,6 +89,14 @@ async def test_get_single_book(
     }
 
 
+async def test_get_nonexistent_book(
+    async_client: AsyncClient,
+    test_seller: Seller,
+):
+    response = await async_client.get('/api/v1/books/-1')
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
 async def test_delete_book(
     async_client: AsyncClient,
     db_session: AsyncSession,
