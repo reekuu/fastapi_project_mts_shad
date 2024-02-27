@@ -27,6 +27,8 @@ class SellerID(BaseModel):
 
 class IncomingSeller(BaseSeller):
     password: str = Field(
+        ...,
+        examples=['pass-aA8'],
         description='\n'.join(
             [
                 'Пароль должен соответствовать следующим критериям:',
