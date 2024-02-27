@@ -34,11 +34,10 @@ class IncomingBook(BaseBook):
 
 
 class ReturnedBook(BaseBook, BookID):
-    id: int
     count_pages: int
 
 
-class ReturnedBookWithSellerId(ReturnedBook, BookID):
+class ReturnedBookWithSellerId(ReturnedBook):
     seller_id: int
 
 
