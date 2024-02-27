@@ -23,6 +23,16 @@ async def test_create_seller(async_client: AsyncClient):
     assert res['email'] == 'loud@rocket.com'
 
 
+async def test_create_seller_without_password(async_client: AsyncClient):
+    seller = {
+        'first_name': 'Serena',
+        'last_name': 'Williams',
+        'email': 'loud@rocket.com',
+    }
+    response = await async_client.post(url='/api/v1/seller/', json=seller)
+    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
+
 async def test_create_duplicate_seller(async_client: AsyncClient, test_seller: Seller):
     seller = {
         'first_name': 'Serena',
